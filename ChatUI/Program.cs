@@ -1,4 +1,6 @@
-namespace ChatUI
+using Test_task.Hubs;
+
+namespace Test_task
 {
     public class Program
     {
@@ -8,6 +10,7 @@ namespace ChatUI
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddSignalR();
 
             var app = builder.Build();
 
@@ -23,6 +26,7 @@ namespace ChatUI
             app.UseAuthorization();
 
             app.MapRazorPages();
+            app.MapHub<ChatHub>("/chatHub");
 
             app.Run();
         }

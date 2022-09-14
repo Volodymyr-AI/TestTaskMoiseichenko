@@ -28,7 +28,11 @@ namespace ChatApp.Controllers
         {
             Message newMessage = new()
             {
-                Text = message.Text
+                Text = message.Text,
+                OwnerId = message.OwnerId,
+                SenderId = message.SenderId,
+                ReceiverId = message.ReceiverId,
+                SendTime = DateTime.Now
             };
             _dbContext.Messages.Add(newMessage);
             _dbContext.SaveChanges();
